@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#canvas2 {
+			width: 600px;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<h1>canvas</h1>
+
+	<canvas style="border: 1px solid red;" id="canvas" width='600' height='300'>
+		Canvas not supported
+	</canvas>
+
+	<canvas style="border: 1px solid red;" id="canvas2">
+		Canvas not supported
+	</canvas>
+
+	<script>
+		var canvas = document.getElementById('canvas'),
+			context = canvas.getContext('2d');
+
+		context.font = '38pt Arial';
+		context.fillStyle = 'yellow';
+		context.strokeStyle = 'blue';
+		context.fillText('Hello Canvas', canvas.width / 2 - 150, canvas.height / 2 + 15);
+		context.strokeText('Hello Canvas', canvas.width / 2 - 150, canvas.height / 2 + 15);
+
+		var canvas2 = document.getElementById('canvas2'),
+			context = canvas2.getContext('2d');
+
+		context.font = '38pt Arial';
+		context.fillStyle = 'yellow';
+		context.strokeStyle = 'blue';
+		context.fillText('Hello canvas2', canvas2.width / 2 - 150, canvas2.height / 2 + 15);
+		context.strokeText('Hello canvas2', canvas2.width / 2 - 150, canvas2.height / 2 + 15);
+	</script>
+</body>
+</html>
