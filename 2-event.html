@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>event</title>
+</head>
+<body>
+	<canvas id="canvas" style="border: 1px solid red;width: 600px;height: 300px;">
+		Canvas not supported
+	</canvas>
+
+	<script>
+		console.log('xxx')
+		var canvas = document.getElementById('canvas'),
+			context = canvas.getContext('2d');
+
+		context.fillStyle = 'yellow';
+		context.strokeStyle = 'blue';
+
+		canvas.addEventListener('mousedown', function(e) {
+			console.log('mousedown', e)
+		});
+
+		function windowToCanvas(canvas, canvasbox, x, y) {
+			console.log(canvas.width, canvasbox.width, canvas.width / canvasbox.width)
+			return {
+				x: (x - canvasbox.left) * (canvas.width / canvasbox.width),
+				clientX: x,
+				y: (y - canvasbox.top) * (canvas.height / canvasbox.height),
+				clientY: y
+			};
+		}
+
+		canvas.onmousemove = function(e) {
+			var canvasbox = canvas.getBoundingClientRect(),
+				loc = windowToCanvas(canvas, canvasbox, e.clientX, e.clientY);
+
+			console.log(canvasbox, loc);
+		}
+	</script>
+</body>
+</html>
